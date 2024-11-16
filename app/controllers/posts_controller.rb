@@ -1,8 +1,15 @@
 class PostsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
+
     def index #shows all posts 
         @posts = Post.all
 
     end 
+
+    def show
+        # Logic for showing a single post
+        @post = Post.find(params[:id])
+      end
 
     def new #creates new posts 
         @post = Post.new
