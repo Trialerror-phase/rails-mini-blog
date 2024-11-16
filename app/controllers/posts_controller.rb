@@ -9,6 +9,8 @@ class PostsController < ApplicationController
     def show
         # Logic for showing a single post
         @post = Post.find(params[:id])
+        @comments = @post.comments # Fetch the comments related to this post
+        @comment = Comment.new # Initialize a new comment object for the form
       end
 
     def new #creates new posts 
